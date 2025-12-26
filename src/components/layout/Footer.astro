@@ -1,0 +1,205 @@
+---
+const bottomLinks = [
+  {
+    header: 'Services',
+    links: [
+      { name: 'Web Development', href: '/services/web-development', isExternal: false },
+      { name: 'Mobile Apps', href: '/services/mobile-apps', isExternal: false },
+      { name: 'Cloud Solutions', href: '/services/cloud', isExternal: false },
+      { name: 'AI & ML', href: '/services/ai-ml', isExternal: false },
+      { name: 'DevOps', href: '/services/devops', isExternal: false },
+    ],
+  },
+  {
+    header: 'Company',
+    links: [
+      { name: 'About Us', href: '/about', isExternal: false },
+      { name: 'Case Studies', href: '/case-studies', isExternal: false },
+      { name: 'Careers', href: '/careers', isExternal: false },
+      { name: 'Blog', href: '/blog', isExternal: false },
+      { name: 'Contact', href: '/contact', isExternal: false },
+    ],
+  },
+];
+
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    href: 'https://linkedin.com/',
+    icon: 'M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z',
+  },
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/',
+    icon: 'M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z',
+  },
+  {
+    name: 'Instagram',
+    href: 'https://instagram.com/',
+    icon: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z',
+  },
+  {
+    name: 'Facebook',
+    href: 'https://facebook.com/',
+    icon: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z',
+  },
+];
+---
+
+<footer
+  class="relative overflow-hidden bg-primary-950 pt-20 pb-12 sm:pt-24 lg:pt-32"
+  aria-labelledby="footer-heading"
+>
+  <!-- Background Decorations -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <svg
+      class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-white/5 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
+      aria-hidden="true"
+    >
+      <defs>
+        <pattern
+          id="e813992c-7d03-4cc4-a2bd-151760b470a0"
+          width="200"
+          height="200"
+          x="50%"
+          y="-1"
+          patternUnits="userSpaceOnUse"
+        >
+          <path d="M100 200V.5M.5 .5H200" fill="none" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
+    </svg>
+    <div
+      class="absolute top-0 right-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+      aria-hidden="true"
+    >
+      <div
+        class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#FFBD33] to-[#E935C1] opacity-10"
+        style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)"
+      >
+      </div>
+    </div>
+  </div>
+
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  
+  <div class="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      {/* Brand Section */}
+      <div class="space-y-8">
+        <h3 class="text-4xl font-bold tracking-tighter text-white flex items-center gap-2">
+          ITECHON
+          <span class="text-[#FFBD33] text-5xl animate-pulse">.</span>
+        </h3>
+        <p class="text-lg leading-relaxed text-primary-300 max-w-sm">
+          Engineering the future of digital business. We build robust, scalable, and intelligent software solutions that drive growth.
+        </p>
+        
+        <!-- Socials -->
+        <div class="flex gap-4">
+          {socialLinks.map((item) => (
+            <a
+              href={item.href}
+              class="group relative flex h-12 w-12 items-center justify-center rounded-full bg-white/5 transition-colors duration-300 hover:bg-[#FFBD33]"
+            >
+              <span class="sr-only">{item.name}</span>
+              <svg
+                class="h-5 w-5 fill-current text-white transition-colors group-hover:text-primary-950"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                  <path d={item.icon} />
+              </svg>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Links Grid */}
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold leading-6 text-white tracking-widest uppercase">Solutions</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              {bottomLinks[0].links.map((item) => (
+                <li>
+                  <a href={item.href} class="text-sm leading-6 text-primary-300 hover:text-[#FFBD33] hover:pl-2 transition-all duration-300 block">
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-sm font-semibold leading-6 text-white tracking-widest uppercase">Company</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              {bottomLinks[1].links.map((item) => (
+                <li>
+                  <a href={item.href} class="text-sm leading-6 text-primary-300 hover:text-[#FFBD33] hover:pl-2 transition-all duration-300 block">
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <div class="md:grid md:grid-cols-1 md:gap-8">
+          <div class="relative bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+            <h3 class="text-lg font-bold text-white mb-4">Stay in the loop</h3>
+            <p class="text-sm text-primary-300 mb-6">
+                Get the latest insights on tech trends, software engineering, and digital transformation.
+            </p>
+            <form class="relative">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    class="w-full bg-primary-950/50 border border-white/10 rounded-xl pl-4 pr-32 py-3.5 text-sm text-white focus:outline-none focus:border-[#FFBD33] focus:ring-1 focus:ring-[#FFBD33] placeholder-primary-500 transition-all"
+                />
+                <button 
+                    type="submit" 
+                    class="absolute right-1.5 top-1.5 bottom-1.5 bg-[#FFBD33] text-primary-950 font-bold text-sm px-6 rounded-lg hover:bg-[#ffae00] transition-all duration-300 shadow-[0_0_10px_rgba(255,189,51,0.2)] hover:shadow-[0_0_20px_rgba(255,189,51,0.4)]"
+                >
+                    Subscribe
+                </button>
+            </form>
+            
+            <div class="mt-8 flex items-center gap-4 text-primary-400 text-xs">
+                 <div class="flex -space-x-2">
+                    <img class="inline-block h-8 w-8 rounded-full ring-2 ring-primary-900" src="/assets/testimonial-1.webp" alt=""/>
+                    <img class="inline-block h-8 w-8 rounded-full ring-2 ring-primary-900" src="/assets/testimonial-2.webp" alt=""/>
+                    <img class="inline-block h-8 w-8 rounded-full ring-2 ring-primary-900" src="/assets/testimonial-3.webp" alt=""/>
+                 </div>
+                 <p>Join 200+ subscribers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-sm leading-5 text-primary-400 text-center md:text-left">
+          &copy; 2025 ITECHON Inc. A Custom Software Development Company. All rights reserved. <span class="hidden sm:inline mx-2 text-primary-700">|</span> 
+          <span class="block sm:inline mt-2 sm:mt-0">Great People to work with.</span>
+        </p>
+        <div class="flex gap-8 text-sm font-medium text-primary-400">
+             <a href="#" class="hover:text-[#FFBD33] transition-colors relative group">
+                Privacy Policy
+                <span class="absolute -bottom-1 left-0 w-0 h-px bg-[#FFBD33] transition-all group-hover:w-full"></span>
+             </a>
+             <a href="#" class="hover:text-[#FFBD33] transition-colors relative group">
+                Terms
+                <span class="absolute -bottom-1 left-0 w-0 h-px bg-[#FFBD33] transition-all group-hover:w-full"></span>
+             </a>
+             <a href="#" class="hover:text-[#FFBD33] transition-colors relative group">
+                Sitemap
+                <span class="absolute -bottom-1 left-0 w-0 h-px bg-[#FFBD33] transition-all group-hover:w-full"></span>
+             </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

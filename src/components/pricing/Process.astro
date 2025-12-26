@@ -1,0 +1,54 @@
+---
+const processSteps = [
+  {
+    step: '01',
+    name: 'Design',
+    description:
+      'We start by understanding your vision and requirements. Our design team creates intuitive and engaging user interfaces (UI) and user experiences (UX) that align with your brand identity and business goals.',
+    icon: '/assets/ui-ux-design.svg',
+  },
+  {
+    step: '02',
+    name: 'Develop',
+    description:
+      'Our expert developers bring the designs to life using cutting-edge technologies. We build robust, scalable, and secure software solutions tailored to your specific needs, ensuring high performance and reliability.',
+    icon: '/assets/website-web-apps.svg',
+  },
+  {
+    step: '03',
+    name: 'Maintain',
+    description:
+      'We provide ongoing support and maintenance to ensure your software remains up-to-date and performs optimally. Our team monitors performance, fixes bugs, and implements updates to keep your business running smoothly.',
+    icon: '/assets/software-maintenance.svg',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">
+        <span class="border-b-4 border-[#FFBD33]">Our Process</span>
+      </h2>
+      <div class="grid gap-8 lg:grid-cols-3">
+        {
+          processSteps.map((item) => (
+            <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-8 rounded-3xl px-6 py-8 transition hover:bg-primary-500/20 dark:hover:bg-primary-400/20">
+              <div class="flex items-center justify-between">
+                <p class="text-4xl font-bold text-[#FFBD33]/60">{item.step}</p>
+                 {/* Icon with Color Mask to match theme if needed, or just raw SVG if it's colorful */}
+                <img src={item.icon} alt={item.name} class="h-16 w-16" />
+              </div>
+              <div class="flex flex-col gap-4">
+                <h3 class="text-xl font-medium">{item.name}</h3>
+                <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
