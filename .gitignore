@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # vscode folder
 .vscode
+
+# large video files
+public/assets/compressed-video.mp4

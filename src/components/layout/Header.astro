@@ -29,6 +29,7 @@ const links = [
 ];
 import MegaMenu from './MegaMenu.astro';
 import HireMenu from './HireMenu.astro';
+import { developmentMenu, hireMenu } from '../../data/navigation';
 ---
 
 <header
@@ -46,11 +47,11 @@ import HireMenu from './HireMenu.astro';
         href="/"
         class="focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 rounded-md focus-visible:outline focus-visible:outline-2"
       >
-        <span class="sr-only">Stone</span>
+        <span class="sr-only">ITECHON</span>
         <img
           class="h-16 w-auto"
           src="/assets/ITECHON.svg"
-          alt="Stone"
+          alt="ITECHON"
         />
       </a>
     </div>
@@ -61,10 +62,15 @@ import HireMenu from './HireMenu.astro';
       {links.filter((link) => link.name !== 'Contact').map((link) => (
         <a
           href={link.href}
-          class="text-base font-medium text-primary-950 hover:text-primary-700 dark:text-primary-200 dark:hover:text-primary-400 transition flex items-center gap-1"
-          :class="{ 
-            'text-primary-700 dark:text-primary-400': (link.name === 'DEVELOPMENT' && megaMenuOpen) || (link.name === 'HIRE RESOURCES' && hireMenuOpen) 
-          }"
+          class={`text-base font-medium text-primary-950 hover:text-primary-700 dark:text-primary-200 dark:hover:text-primary-400 transition flex items-center gap-1 ${
+            link.name === 'DEVELOPMENT' ? 'development-link' : 
+            link.name === 'HIRE RESOURCES' ? 'hire-link' : ''
+          }`}
+          x-bind:class={
+            link.name === 'DEVELOPMENT' ? "{ 'text-primary-700 dark:text-primary-400': megaMenuOpen }" : 
+            link.name === 'HIRE RESOURCES' ? "{ 'text-primary-700 dark:text-primary-400': hireMenuOpen }" : 
+            "{}"
+          }
           @mouseenter={
             link.name === 'DEVELOPMENT' ? "megaMenuOpen = true; hireMenuOpen = false" : 
             link.name === 'HIRE RESOURCES' ? "hireMenuOpen = true; megaMenuOpen = false" : 
@@ -251,8 +257,7 @@ import HireMenu from './HireMenu.astro';
         <p
           class="text-primary-950/70 dark:text-primary-200/70 max-w-sm text-xl italic leading-loose"
         >
-          <span class="font-medium">Stone</span> is a premium Astro theme specially designed for
-          Business, Marketing, SaaS and Startup websites.
+          <span class="font-medium">ITECHON</span> is a global software engineering and IT consulting company delivering custom solutions with 30+ tech stacks and dedicated teams.
         </p>
       </div>
 
@@ -260,26 +265,110 @@ import HireMenu from './HireMenu.astro';
       <nav class="divide-primary-900/10 dark:divide-primary-300/10 flex flex-col gap-1 divide-y">
         {
           links.map((link) => (
-            <a
-              href={link.href}
-              class="text-primary-950 dark:text-primary-200 group inline-flex py-6 text-3xl font-medium tracking-tight transition focus-visible:outline-none sm:py-8 sm:text-4xl"
-            >
-              <div class="group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 flex flex-1 items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
-                <div class="flex items-center gap-6">
-                  <span class="text-xs">{link.ref}</span>
-                  <span class="group-hover:underline">{link.name}</span>
-                </div>
-                <svg
-                  class="text-primary-600 dark:text-primary-400 h-6 w-6 sm:h-8 sm:w-8"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
+            link.name === 'DEVELOPMENT' ? (
+              <div x-data="{ expanded: false }" class="flex flex-col">
+                <div
+                  @click="expanded = !expanded"
+                  class="cursor-pointer text-primary-950 dark:text-primary-200 group inline-flex py-6 text-3xl font-medium tracking-tight transition focus-visible:outline-none sm:py-8 sm:text-4xl"
                 >
-                  <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
-                </svg>
+                  <div class="group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 flex flex-1 items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
+                    <div class="flex items-center gap-6">
+                      <span class="text-xs">{link.ref}</span>
+                      <span class="group-hover:underline">{link.name}</span>
+                    </div>
+                    <svg
+                      class="text-primary-600 dark:text-primary-400 h-6 w-6 sm:h-8 sm:w-8 transition-transform duration-300"
+                      :class="{ 'rotate-180': expanded }"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+                <div x-show="expanded" x-collapse class="pl-12 pb-6 space-y-6">
+                   {developmentMenu.map((category) => (
+                    <div class="space-y-3">
+                      <h4 class="text-base font-bold text-[#FFBD33] uppercase tracking-wide">{category.title}</h4>
+                      <ul class="space-y-2 pl-4 border-l border-primary-900/10 dark:border-primary-100/10">
+                        {category.items.map((item) => (
+                          <li>
+                            <a href={item.href} class="block text-lg text-primary-950/80 dark:text-primary-200/80 hover:text-[#FFBD33] transition-colors">
+                              {item.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                   ))}
+                </div>
               </div>
-            </a>
+            ) : link.name === 'HIRE RESOURCES' ? (
+              <div x-data="{ expanded: false }" class="flex flex-col">
+                <div
+                  @click="expanded = !expanded"
+                  class="cursor-pointer text-primary-950 dark:text-primary-200 group inline-flex py-6 text-3xl font-medium tracking-tight transition focus-visible:outline-none sm:py-8 sm:text-4xl"
+                >
+                  <div class="group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 flex flex-1 items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
+                    <div class="flex items-center gap-6">
+                      <span class="text-xs">{link.ref}</span>
+                      <span class="group-hover:underline">{link.name}</span>
+                    </div>
+                     <svg
+                      class="text-primary-600 dark:text-primary-400 h-6 w-6 sm:h-8 sm:w-8 transition-transform duration-300"
+                      :class="{ 'rotate-180': expanded }"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+                <div x-show="expanded" x-collapse class="pl-12 pb-6 space-y-6">
+                   {hireMenu.map((category) => (
+                    <div class="space-y-3">
+                      <h4 class="text-base font-bold text-[#FFBD33] uppercase tracking-wide">{category.title}</h4>
+                      <ul class="space-y-2 pl-4 border-l border-primary-900/10 dark:border-primary-100/10">
+                        {category.items.map((item) => (
+                          <li>
+                            <a href={item.href} class="block text-lg text-primary-950/80 dark:text-primary-200/80 hover:text-[#FFBD33] transition-colors">
+                              {item.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                   ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={link.href}
+                class="text-primary-950 dark:text-primary-200 group inline-flex py-6 text-3xl font-medium tracking-tight transition focus-visible:outline-none sm:py-8 sm:text-4xl"
+              >
+                <div class="group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 flex flex-1 items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
+                  <div class="flex items-center gap-6">
+                    <span class="text-xs">{link.ref}</span>
+                    <span class="group-hover:underline">{link.name}</span>
+                  </div>
+                  <svg
+                    class="text-primary-600 dark:text-primary-400 h-6 w-6 sm:h-8 sm:w-8"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                  </svg>
+                </div>
+              </a>
+            )
           ))
         }
       </nav>

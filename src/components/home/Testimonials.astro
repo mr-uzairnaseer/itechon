@@ -24,8 +24,16 @@ const testimonials = [
 ];
 ---
 
-<section class="py-16 sm:py-20">
-  <div class="v mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+<section class="py-16 sm:py-20 relative overflow-hidden">
+  <!-- Top Highlight -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-[#FFBD33]/50 to-transparent blur-sm"></div>
+
+  <div class="v mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
+      <!-- Background Blobs -->
+      <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] h-[300px] bg-[#FFBD33]/5 rounded-full blur-[80px]"></div>
+          <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-primary-500/10 rounded-full blur-[80px]"></div>
+      </div>
     <div class="flex flex-col items-center gap-12 lg:gap-20">
       <h2 class="mx-auto max-w-xl text-center text-3xl font-medium tracking-tight sm:text-4xl">
         Trusted by the largest companies in the world

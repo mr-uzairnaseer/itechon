@@ -2,46 +2,58 @@
 const processSteps = [
   {
     step: '01',
-    name: 'Design',
+    name: 'Discovery & Strategy',
     description:
-      'We start by understanding your vision and requirements. Our design team creates intuitive and engaging user interfaces (UI) and user experiences (UX) that align with your brand identity and business goals.',
-    icon: '/assets/ui-ux-design.svg',
+      'We dive deep into your business goals, user needs, and market landscape. This foundational phase ensures a strategic roadmap aligned with your vision.',
+    icon: '/assets/digital-transformation.svg',
   },
   {
     step: '02',
-    name: 'Develop',
+    name: 'Design & Prototyping',
     description:
-      'Our expert developers bring the designs to life using cutting-edge technologies. We build robust, scalable, and secure software solutions tailored to your specific needs, ensuring high performance and reliability.',
-    icon: '/assets/website-web-apps.svg',
+      'Our designers craft intuitive UI/UX experiences. We create interactive prototypes to visualize the product before writing a single line of code.',
+    icon: '/assets/ui-ux-design.svg',
   },
   {
     step: '03',
-    name: 'Maintain',
+    name: 'Development & QA',
     description:
-      'We provide ongoing support and maintenance to ensure your software remains up-to-date and performs optimally. Our team monitors performance, fixes bugs, and implements updates to keep your business running smoothly.',
+      'Our engineers build robust, scalable systems using agile methodologies. Rigorous QA testing constitutes every sprint to ensure a bug-free launch.',
+    icon: '/assets/website-web-apps.svg',
+  },
+  {
+    step: '04',
+    name: 'Launch & Scale',
+    description:
+      'We handle the deployment and provide ongoing support. As your user base grows, we help you scale your infrastructure to meet demand.',
     icon: '/assets/software-maintenance.svg',
   },
 ];
 ---
 
-<section class="py-16 sm:py-20">
-  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+<section class="py-16 sm:py-20 relative overflow-hidden">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative z-10">
     <div class="flex flex-col gap-12 sm:gap-16">
-      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">
-        <span class="border-b-4 border-[#FFBD33]">Our Process</span>
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-center">
+        <span class="border-b-4 border-[#FFBD33]">Our Proven Process</span>
       </h2>
-      <div class="grid gap-8 lg:grid-cols-3">
+      <div class="grid gap-8 lg:grid-cols-4">
         {
           processSteps.map((item) => (
-            <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-8 rounded-3xl px-6 py-8 transition hover:bg-primary-500/20 dark:hover:bg-primary-400/20">
+            <div class="group relative flex flex-col gap-8 rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)] hover:-translate-y-1">
               <div class="flex items-center justify-between">
-                <p class="text-4xl font-bold text-[#FFBD33]/60">{item.step}</p>
-                 {/* Icon with Color Mask to match theme if needed, or just raw SVG if it's colorful */}
-                <img src={item.icon} alt={item.name} class="h-16 w-16" />
+                <p class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFBD33] to-[#FFBD33]/10 opacity-50">{item.step}</p>
+                 {/* Icon with Color Mask */}
+                <div class="h-10 w-10 p-2 rounded-xl bg-[#FFBD33]/10 text-[#FFBD33] flex items-center justify-center group-hover:!text-black transition-all duration-300">
+                    <div
+  class="h-full w-full bg-current transition-colors duration-300"
+  style={`mask-image: url(${item.icon}); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url(${item.icon}); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-mode: alpha; -webkit-mask-mode: alpha;`}
+/>
+                </div>
               </div>
               <div class="flex flex-col gap-4">
-                <h3 class="text-xl font-medium">{item.name}</h3>
-                <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+                <h3 class="text-xl font-medium group-hover:text-[#FFBD33] transition-colors">{item.name}</h3>
+                <p class="text-primary-950/70 dark:text-primary-200/70 text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>

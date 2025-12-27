@@ -86,11 +86,11 @@ const industries = [
         {
           industries.map((item, index) => (
             <div
-              class={`group relative flex flex-col items-center text-center gap-6 overflow-hidden rounded-3xl bg-primary-500/10 px-6 py-8 transition-colors hover:bg-primary-500/20 dark:bg-primary-400/10 lg:col-span-2 ${
+              class={`group relative flex flex-col items-center text-center gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)] hover:-translate-y-1 lg:col-span-2 ${
                 index === 12 ? 'lg:col-start-2' : ''
               }`}
             >
-              <div class="h-16 w-16 text-primary-600 dark:text-primary-300">
+              <div class="h-16 w-16 text-primary-600 dark:text-primary-300 transition-transform duration-300 group-hover:scale-110 group-hover:text-[#FFBD33]">
                 {/* PNG Icon with Color Mask */}
                 <div
                   class="h-full w-full bg-current"
@@ -98,10 +98,8 @@ const industries = [
                 />
               </div>
               <div class="flex flex-col gap-2">
-                <h3 class="text-xl font-medium">{item.name}</h3>
+                <h3 class="text-xl font-medium group-hover:text-[#FFBD33] transition-colors">{item.name}</h3>
               </div>
-              {/* Animated Bottom Line */}
-              <div class="absolute bottom-0 left-0 h-1.5 w-full origin-left scale-x-0 bg-[#FFBD33] transition-transform duration-500 ease-in-out group-hover:scale-x-100" />
             </div>
           ))
         }
